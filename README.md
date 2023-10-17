@@ -1,16 +1,16 @@
-Задача:
+Task:
 
-Как системному администратору данной организации вам поставлена задача собрать на докер образ Django (Linux, nginx, Django, Postgres, Gunicorn) сервера, который можно было бы выложить в публичный доступ на Docker Hub, предоставляя кандидату только ссылку на образ и команду для установки. Все нужные сервисы должны быть проброшены на хост по стандартным портам, реализация HTTPS не требуется, версии Django, nginx и Postgres не имеют значения, как и версия ядра Linux. В проекте просто должна работать админка с заранее прописанным логином и паролем.
+As the system administrator of this organization, you are tasked with building a Docker image of a Django (Linux, nginx, Django, Postgres, Gunicorn) server, which could be made publicly available on Docker Hub, providing the candidate only with a link to the image and the installation command. All necessary services must be forwarded to the host via standard ports, HTTPS implementation is not required, the versions of Django, nginx and Postgres do not matter, as does the version of the Linux kernel. The project simply needs to have an admin panel working with a pre-defined login and password.
 
 docker-compose -f docker-compose.prod.yml up -d --build
 
 docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput
 
-Админка доступна по адресу - http://localhost:1337/admin/ 
+The admin panel is available at - http://localhost:1337/admin/
 
 Login - admin,
 Password - admin
 
-Управление супер админом:
+Super admin management:
 
 docker-compose -f docker-compose.prod.yml exec web python manage.py createsuperuser
